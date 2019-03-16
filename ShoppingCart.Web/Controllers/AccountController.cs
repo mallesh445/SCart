@@ -76,6 +76,8 @@ namespace ShoppingCart.Web.Controllers
             }
             return View();
         }
+
+        [HttpGet]
         public ActionResult Register()
         {
             return View();

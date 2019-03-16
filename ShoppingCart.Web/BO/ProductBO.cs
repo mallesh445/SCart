@@ -131,5 +131,40 @@ namespace ShoppingCart.Web.BO
                 throw ex;
             }
         }
+
+        public List<Product> GetProductsList()
+        {
+
+            var products = (from p in context.Products
+                            where p.IsActive == true
+                            select p).ToList();
+
+            //foreach (Product item in products)
+            //{
+            //    item.ProductImageList = (from pImg in context.ProductImages where pImg.FKProductId == item.PKProductId select pImg).ToList();
+            //    item.SubCategoryName = (from cat in context.SubCategories where cat.PKSubCategoryId == item.FKSubCategoryId select cat.SubCategoryName).SingleOrDefault();
+            //    item.CategoryName = (from cat in context.Categories where cat.PKCategoryId == item.FKCategoryId select cat.CategoryName).SingleOrDefault();
+            //}
+
+
+            return products;
+        }
+
+        public Product GetProductsDetailsView(int productID)
+        {
+            Product productDetails = new Product();
+            try
+            {
+                var prodlist = GetProductsList();
+                productDetails = (from p in prodlist.Where(x => x.PKProductId == productID) select p).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                //ex.Message;
+                throw;
+            }
+            return productDetails;
+        }
+
     }
 }

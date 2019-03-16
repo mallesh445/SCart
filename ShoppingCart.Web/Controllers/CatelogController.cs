@@ -69,11 +69,20 @@ namespace ShoppingCart.Web.Controllers
         }
 
 
-        //[HttpPost]
-        //public JsonResult AddData(string ListID, string ItemName)
-        //{
-        //    //return Content(ListID + " " + ItemName);
-        //    return Json(ItemName, JsonRequestBehavior.AllowGet);
-        //}
+        public ActionResult GetProductList()
+        {
+            return PartialView("_ProductsListView", objProductBO.GetProductsList());
+        }
+
+        public ActionResult GetProductsDetailsView(int productID)
+        {
+            //return PartialView("_ProductsDetailsView", productID);
+            return PartialView("_ProductsDetailsView", objProductBO.GetProductsDetailsView(productID));
+        }
+
+        public ActionResult ProductsDetails()
+        {
+            return View("~/Views/Products/product_details.cshtml");
+        }
     }
 }

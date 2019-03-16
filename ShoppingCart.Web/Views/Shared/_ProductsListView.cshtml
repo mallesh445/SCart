@@ -1,0 +1,99 @@
+﻿
+@using ShoppingCart.Web.BO
+@{
+    ProductBO objProductBO = new ProductBO();
+}
+<style>
+    .card {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
+    }
+
+    .card-product .info-wrap {
+        overflow: hidden;
+        padding: 15px;
+        border-top: 1px solid #eee;
+    }
+
+    .col-md-2 {
+        margin-bottom: 5px;
+        margin-top: 5px;
+        width: 22% !important;
+    }
+
+    .img-wrap {
+        text-align: center;
+        display: block;
+        margin: 5px 0px 5px 0px;
+    }
+
+    .card-product {
+        margin-bottom: 1rem;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+
+    #ProdutListView {
+        margin-top: 50px !important;
+    }
+    /*img {
+        vertical-align: middle;
+        border-style: none;
+    }
+    *, *::before, *::after {
+        /* -webkit-box-sizing: border-box; * /
+        box-sizing: border-box;
+    }*/
+    /*figure {
+        margin-bottom: 0;
+    }
+
+    figure {
+        margin: 0 0 1rem;
+    }
+
+    article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
+        display: block;
+    }
+
+    *, *::before, *::after {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }*/
+</style>
+<div id="ProdutListView" class="row">
+
+    @foreach (var product in objProductBO.GetProductsList())
+    {
+        <div class="col-md-2 col-sm-6">
+            <figure class="card card-product">
+                <div class="img-wrap">
+                    <a href=@Url.Action("GetProductsDetailsView", "Catelog", new {productID=product.PKProductId })><img src="@product.ProductImageList.FirstOrDefault().ImagePath" alt="Loading..." height="150" width="150" /></a>
+                </div>
+                <figcaption class="info-wrap">
+                    <a href="#" class="title">@product.ProductName</a>
+                    <div class="price-wrap">
+                        <span class="price-new"><b>&#8377;</b>@product.Price</span>
+                    </div>
+                </figcaption>
+            </figure>
+        </div>
+    }
+</div>

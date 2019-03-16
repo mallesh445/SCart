@@ -42,6 +42,9 @@ namespace ShoppingCart.Web
         public System.DateTime CreatedDate { get; set; }
         [DataType(DataType.DateTime)]
         public Nullable<System.DateTime> UpdatedDate { get; set; }
+        //[Display(Name = "Date of Birth")]
+        //[DataType(DataType.Date)]
+        //public DateTime? DOB { get; set; }
     }
     [MetadataType(typeof(RegisterModel))]
     public partial class UserProfile

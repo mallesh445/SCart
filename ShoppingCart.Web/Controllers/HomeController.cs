@@ -45,5 +45,22 @@ namespace ShoppingCart.Web.Controllers
             return Content(ListID + " " + ItemName);
         }
 
+        public ActionResult Test()
+        {
+            return PartialView("_eCommerceHeader.cshtml");
+        }
+
+        //Added by Ashok
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        public ActionResult Products()
+        {
+            return View("~/Views/Products/_Products.cshtml");
+        }
+
+        //end
     }
 }

@@ -1,71 +1,66 @@
-﻿@model ShoppingCart.Web.Models.LoginViewModel
+﻿
 @{
     ViewBag.Title = "Login";
 }
 
-@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
-{<div class="container">
-        <fieldset>
-            <legend>Login</legend>
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true)
-            <div class="col-sm-12 form-group">
-                <table>
-                    <tr>
-                        <td>
-                            @Html.LabelFor(model => model.UserName)
-                        </td>
-                        <td>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                @*<input type="text" class="form-control" name="username" id="username5" placeholder="enter your username" />*@
-                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @Html.LabelFor(model => model.Password)
-                        </td>
-                        <td>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                @*<input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />*@
-                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                            </div>
-                            @*@Html.EditorFor(model => model.Password)*@
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @Html.LabelFor(model => model.RememberMe)
-                        </td>
-                        <td>
-                            @Html.EditorFor(model => model.RememberMe)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="submit" id="btnLogin" class="btn btn-primary btn-lg btn-block login-button" value="Login"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>@Html.ActionLink("Register", "Register", "Account") if you don't have a local account.</p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </fieldset>
-    </div>
-}
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <div class="span9">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+                    <li class="active">Login</li>
+                </ul>
+                <h3> Login</h3>
+                <hr class="soft" />
 
-@section Scripts{
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#Password').addClass('form-control');
-            $('#UserName').addClass('form-control');
-        });
-    </script>
-}
+                <div class="row">
+                    <div class="span4">
+                        <div class="well">
+                            <h5>CREATE YOUR ACCOUNT</h5><br />
+                            Enter your e-mail address to create an account.<br /><br /><br />
+                            <form action="register.html">
+                                <div class="control-group">
+                                    <label class="control-label" for="inputEmail0">E-mail address</label>
+                                    <div class="controls">
+                                        <input class="span3" type="text" id="inputEmail0" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="controls">
+                                    <button type="submit" class="btn block">Create Your Account</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="span1"> &nbsp;</div>
+                    <div class="span4">
+                        <div class="well">
+                            <h5>ALREADY REGISTERED ?</h5>
+                            <form>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputEmail1">Email</label>
+                                    <div class="controls">
+                                        <input class="span3" type="text" id="inputEmail1" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputPassword1">Password</label>
+                                    <div class="controls">
+                                        <input type="password" class="span3" id="inputPassword1" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <button type="submit" class="btn">Sign in</button> <a href="forgetpass.html">Forget password?</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
